@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Calculator</title>
+</head>
+<body>
+    <script>
+        function add(a, b) {
+            return a + b;
+        }
+
+        function subtract(a, b) {
+            return a - b;
+        }
+
+        function multiply(a, b) {
+            return a * b;
+        }
+
+        function divide(a, b) {
+            return a / b;
+        }
+
+        function square(a) {
+            return a * a;
+        }
+
+        function squareRoot(a) {
+            return Math.sqrt(a);
+        }
+
+        function calculator() {
+            while (true) {
+                let choice = prompt(
+                    "Calculator Menu:\n" +
+                    "1. Pertambahan\n" +
+                    "2. Pengurangan\n" +
+                    "3. Perkalian\n" +
+                    "4. Pembagian\n" +
+                    "5. Pangkat(^)2\n" +
+                    "6. Akar Pangkat(^)2\n" +
+                    "7. Exit\n" +
+                    "Please choose an operation (1-7):"
+                );
+
+                if (choice === null || choice === "" || isNaN(choice)) {
+                    alert("Invalid choice. Please enter a valid number.");
+                    continue;
+                }
+
+                choice = Number(choice);
+
+                if (choice === 7) {
+                    alert("Goodbye!");
+                    break;
+                }
+
+                if (choice < 1 || choice > 6) {
+                    alert("Invalid choice. Please choose a valid operation (1-6).");
+                    continue;
+                }
+
+                let number = parseFloat(prompt("Enter a number:"));
+
+                if (isNaN(number)) {
+                    alert("Invalid input. Please enter a valid number.");
+                    continue;
+                }
+
+                let result;
+
+                switch (choice) {
+                    case 1:
+                        result = add(number, parseFloat(prompt("Enter another number:")));
+                        break;
+                    case 2:
+                        result = subtract(number, parseFloat(prompt("Enter another number:")));
+                        break;
+                    case 3:
+                        result = multiply(number, parseFloat(prompt("Enter another number:")));
+                        break;
+                    case 4:
+                        let divisor = parseFloat(prompt("Enter another number (non-zero):"));
+                        if (divisor === 0 || isNaN(divisor)) {
+                            alert("Invalid input. Division by zero or invalid number.");
+                            continue;
+                        }
+                        result = divide(number, divisor);
+                        break;
+                    case 5:
+                        result = square(number);
+                        break;
+                    case 6:
+                        if (number < 0) {
+                            alert("Invalid input. Cannot calculate square root of a negative number.");
+                            continue;
+                        }
+                        result = squareRoot(number);
+                        break;
+                }
+
+                alert(`Result: ${result}`);
+            }
+        }
+
+        calculator();
+
+    </script>
+</body>
+</html>

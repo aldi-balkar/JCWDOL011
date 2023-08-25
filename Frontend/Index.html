@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+        }
+
+        .landing-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .landing-header {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .landing-description {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .landing-button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .landing-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Menyembunyikan konten utama awalnya */
+        .main-content {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="landing-container">
+        <h1 class="landing-header">Selamat Datang di Halaman Landing</h1>
+        <p class="landing-description">Ini adalah contoh halaman landing sederhana menggunakan HTML dan CSS.</p>
+        <button class="landing-button" id="startButton">Mulai Sekarang</button>
+    </div>
+
+    <div class="main-content" id="mainContent">
+        <h2>Selamat Datang di Website Kami!</h2>
+        <p>Ini adalah konten utama dari website kami. Selamat menjelajah!</p>
+    </div>
+
+    <script>
+        const startButton = document.getElementById('startButton');
+        const mainContent = document.getElementById('mainContent');
+
+        startButton.addEventListener('click', () => {
+            // Mengubah tampilan halaman saat tombol ditekan
+            document.body.style.background = '#fff';
+            document.querySelector('.landing-container').style.display = 'none';
+            mainContent.style.display = 'block';
+        });
+    </script>
+</body>
+
+</html>
